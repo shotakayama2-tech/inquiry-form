@@ -1,0 +1,105 @@
+/* 全体カード */
+.contact-container {
+    width: 70%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 50px 60px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* タイトル */
+.contact-title {
+    text-align: center;
+    font-size: 24px;
+    margin: 40px 0 50px;
+    font-weight: 400;
+    color: #6b5b52;
+}
+
+/* 1行の構造（ラベル + 入力） */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* 左側ラベル（固定幅） */
+.form-row>label {
+    width: 180px;
+    flex-shrink: 0;
+    color: #6d5c55;
+    font-size: 15px;
+    text-align: left;
+}
+
+/* 必須マーク */
+.required {
+    color: #d9534f;
+    margin-left: 5px;
+}
+
+/* 右側の入力欄（基本） */
+.form-row input,
+.form-row select,
+.form-row textarea {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    background: #f7f6f5;
+    border-radius: 3px;
+}
+
+/* 名前（2つ横並び） */
+.two-input {
+    display: flex;
+    gap: 20px;
+}
+
+.two-input input {
+    width: 160px;
+}
+
+/* 性別（ラジオ） */
+.radio-group {
+    display: flex;
+    gap: 30px;
+}
+
+/* 電話番号 */
+.tel-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tel-input input {
+    width: 120px;
+}
+
+/* お問い合わせ内容 */
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* ボタンエリア */
+.submit-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.submit-btn {
+    background: #6d5c55;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    opacity: 0.8;
+}
