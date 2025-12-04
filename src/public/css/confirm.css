@@ -1,0 +1,43 @@
+/* ページ全体を中央寄せ */
+.confirm-container {
+    margin-top: 120px;
+    /* ← FashionablyLate ロゴの下あたりに配置 */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ボックスの見た目 */
+.confirm-box {
+    width: 550px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ボタンを横並びセンター */
+.confirm-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.confirm-buttons button {
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.confirm-buttons button:first-child {
+    background: #000;
+    color: #fff;
+}
+
+.confirm-buttons button:last-child {
+    background: #cfcfcf;
+}

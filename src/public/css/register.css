@@ -1,0 +1,119 @@
+/* ページ全体 */
+.page-bg {
+    background: #e8e0d8;
+    min-height: 100vh;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* 中央ラッパー */
+.register-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* タイトル */
+.header .site-title {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    color: #5a4a42;
+    margin-bottom: 6px;
+}
+
+.header .register-title {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    color: #6a5a52;
+    margin-bottom: 28px;
+}
+
+/* ----------------------
+   ★ 白い「大きな四角」カード
+   ---------------------- */
+.register-card {
+    background: #ffffff;
+    /* 白 */
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    /* カード内余白（ここに3つのフィールドが入る） */
+    border-radius: 10px;
+    border: 1px solid #e0dcd6;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    /* ラベルは左寄せ */
+}
+
+/* form内のまとまり（無色だがカード内） */
+.form-inner {
+    width: 100%;
+}
+
+/* 各フィールド（縦積み） */
+.field {
+    margin-bottom: 18px;
+}
+
+/* ラベル */
+.field label {
+    display: block;
+    font-size: 14px;
+    color: #5a5a5a;
+    margin-bottom: 8px;
+}
+
+/* 入力欄（カード内に自然に収まる見た目） */
+.field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #e6e6e6;
+    background: #fbfbfb;
+}
+
+/* ボタン */
+.actions {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.register-btn {
+    background: #7a6859;
+    color: #fff;
+    border: none;
+    padding: 10px 36px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.register-btn:hover {
+    opacity: 0.9;
+}
+
+/* レスポンシブ（狭い画面で余白を小さく） */
+@media (max-width: 560px) {
+    .register-card {
+        padding: 20px;
+        margin: 10px;
+    }
+}
+.login-floating {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 12px;
+    color: #b9a89c;
+    border: 1px solid #e0d8d1;
+    padding: 4px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    background: #f7f4f1;
+}
+
+.login-floating:hover {
+    opacity: 0.7;
+}

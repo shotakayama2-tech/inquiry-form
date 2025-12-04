@@ -10,7 +10,7 @@
     <p>お問い合わせありがとうございました。</p>
 
     <div class="thanks-button">
-        <a href="/contacts" class="thanks-link">トップへ戻る</a>
+        <a href="/contacts" class="thanks-link">HOME</a>
     </div>
 </div>
 @endsection

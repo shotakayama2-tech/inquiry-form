@@ -1,98 +1,37 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+<link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @endsection
 
 @section('content')
-<div class="contact-form__content">
-    <div class="contact-form__heading">
-        <h2>Confirm</h2>
+
+<div class="confirm-container">
+    <h2>confirm</h2>
+
+    <div class="confirm-box">
+        <!-- 名前を結合して表示 -->
+        <p><strong>お名前：</strong> {{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</p>
+        <p><strong>性別：</strong> {{ $inputs['gender'] }}</p>
+        <p><strong>メール：</strong> {{ $inputs['email'] }}</p>
+        <p><strong>電話番号：</strong> {{ $inputs['tel1'] }}-{{ $inputs['tel2'] }}-{{ $inputs['tel3'] }}</p>
+        <p><strong>住所：</strong> {{ $inputs['address'] }}</p>
+        <p><strong>建物名：</strong> {{ $inputs['building'] }}</p>
+        <p><strong>お問い合わせの種類：</strong> {{ $inputs['kind'] }}</p>
+        <p><strong>お問い合わせ内容：</strong><br>{{ $inputs['content'] }}</p>
+
+        <form method="post" action="{{ route('contact.send') }}">
+            @csrf
+            @foreach($inputs as $key => $value)
+                <input type="hidden" name="{{ $key }}" value="{{ $value }}">
+            @endforeach
+
+            <div class="confirm-buttons">
+                <button type="submit" name="action" value="submit">送信</button>
+                <button type="submit" name="action" value="back">修正</button>
+            </div>
+        </form>
     </div>
-
-    <form class="form" action="{{ route('contact.thanks') }}" method="POST">
-
-        @csrf
-
-        {{-- 名前 --}}
-        <div class="form__group">
-            <label class="form__label">お名前</label>
-            <div class="form__confirm-text">
-                {{ $inputs['last_name'] }} {{ $inputs['first_name'] }}
-            </div>
-
-            {{-- hiddenで送信 --}}
-            <input type="hidden" name="last_name" value="{{ $inputs['last_name'] }}">
-            <input type="hidden" name="first_name" value="{{ $inputs['first_name'] }}">
-        </div>
-
-        {{-- 性別 --}}
-        <div class="form__group">
-            <label class="form__label">性別</label>
-            <div class="form__confirm-text">
-                @if($inputs['gender'] == 1) 男性
-                @elseif($inputs['gender'] == 2) 女性
-                @else その他
-                @endif
-            </div>
-            <input type="hidden" name="gender" value="{{ $inputs['gender'] }}">
-        </div>
-
-        {{-- メール --}}
-        <div class="form__group">
-            <label class="form__label">メールアドレス</label>
-            <div class="form__confirm-text">{{ $inputs['email'] }}</div>
-            <input type="hidden" name="email" value="{{ $inputs['email'] }}">
-        </div>
-
-        {{-- 電話 --}}
-        <div class="form__group">
-            <label class="form__label">電話番号</label>
-            <div class="form__confirm-text">
-                {{ $inputs['tel1'] }} - {{ $inputs['tel2'] }} - {{ $inputs['tel3'] }}
-            </div>
-            <input type="hidden" name="tel1" value="{{ $inputs['tel1'] }}">
-            <input type="hidden" name="tel2" value="{{ $inputs['tel2'] }}">
-            <input type="hidden" name="tel3" value="{{ $inputs['tel3'] }}">
-        </div>
-
-        {{-- 住所 --}}
-        <div class="form__group">
-            <label class="form__label">住所</label>
-            <div class="form__confirm-text">{{ $inputs['address'] }}</div>
-            <input type="hidden" name="address" value="{{ $inputs['address'] }}">
-        </div>
-
-        {{-- 種類 --}}
-            <div class="form__group">
-            <label class="form__label">お問い合わせの種類</label>
-            <div class="form__confirm-text">{{ $inputs['kind'] }}</div>
-
-    <input type="hidden" name="kind" value="{{ $inputs['kind'] }}">
 </div>
 
-            <input type="hidden" name="category" value="{{ $inputs['category'] }}">
-        </div>
-
-        {{-- 内容 --}}
-            <div class="form__group">
-            <label class="form__label">お問い合わせ内容</label>
-
-    <div class="form__confirm-text">{{ $inputs['content'] }}</div>
-
-    <input type="hidden" name="content" value="{{ $inputs['content'] }}">
-</div>
-
-
-        <div class="form__button confirm-buttons">
-            <button class="form__button-submit">送信する</button>
-        </div>
-    </form>
-
-    {{-- 戻るボタン --}}
-    <form action="/contacts" method="get" class="form__back-button">
-        <button class="form__button-back">修正する</button>
-    </form>
-
-</div>
 @endsection

@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
 
+    {{-- ▼ これが必須！ register.css を読み込ませる --}}
+    @yield('css')
 
     <style>
         body {
@@ -44,29 +46,55 @@
             color: #a9a9a9;
             font-size: 14px;
         }
-        .contact-title {
-        text-align: center;
-        font-size: 24px;
-        margin: 40px 0 50px;
-        font-weight: 400;
-        color: #6b5b52;
-        }
 
+        .contact-title {
+            text-align: center;
+            font-size: 24px;
+            margin: 40px 0 50px;
+            font-weight: 400;
+            color: #6b5b52;
+        }
+        /* 右上に固定 */
+.top-right-link {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    text-decoration: none;
+    color: #6b5b52;
+    font-size: 14px;
+    border: 1px solid #6b5b52;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.top-right-link:hover {
+    background-color: #6b5b52;
+    color: #fff;
+}
 
     </style>
 </head>
 
 <body>
+{{-- register ページの時に login リンク --}}
+    @if (Route::currentRouteName() === 'register')
+        <a href="{{ route('login') }}" class="top-right-link">login</a>
+    @endif
 
-    {{-- ヘッダー --}}
+    {{-- login ページの時に register リンク --}}
+    @if (Route::currentRouteName() === 'login')
+        <a href="{{ route('register') }}" class="top-right-link">register</a>
+    @endif
+
     <header class="header">
         <h1 class="header-title">FashionablyLate</h1>
     </header>
 
-    {{-- メインコンテンツ --}}
     <div class="content-area">
         @yield('content')
     </div>
+
 
 </body>
 </html>

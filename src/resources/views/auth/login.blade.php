@@ -1,27 +1,35 @@
 @extends('layouts.app')
 
-@section('title', 'ログイン')
+@section('title', 'Login')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
 
 @section('content')
-<div class="auth-container">
-    <h2>Login</h2>
-    
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-        
-        <div class="form-group">
-            <label for="email">メールアドレス</label>
-            <input type="email" name="email" id="email" placeholder="例: test@example.com" value="{{ old('email') }}" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="password">パスワード</label>
-            <input type="password" name="password" id="password" placeholder="例: coachtech06" required>
-        </div>
+<div class="login-wrapper">
 
-        <button type="submit">ログイン</button>
-    </form>
+    <h2 class="login-heading">Login</h2>
 
-    <p>アカウントをお持ちでない場合 <a href="{{ route('register') }}">新規登録</a></p>
+    <div class="login-box">
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
+
+            <div class="form-group">
+                <label>メールアドレス</label>
+                <input type="email" name="email" placeholder="例: test@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>パスワード</label>
+                <input type="password" name="password" placeholder="例: coachtech006" required>
+            </div>
+
+            <div class="btn-area">
+                <button type="submit" class="login-btn">ログイン</button>
+            </div>
+        </form>
+    </div>
+
 </div>
 @endsection
