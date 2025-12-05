@@ -15,6 +15,15 @@ docker-compose exec app php artisan migrate --seed
 docker-compose exec app npm run dev
 ```
 
+---
+
+## 🔧 .env の設定（必ず変更）
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_db
+DB_USERNAME=laravel_user
+DB_PASSWORD=laravel_pass
 
 ---
 
