@@ -6,14 +6,28 @@ cd inquiry-form
 
 ---
 
-## 🚀 Laravel 環境構築
-```bash
-docker-compose up -d
-docker-compose exec app composer install
-docker-compose exec app php artisan key:generate
-docker-compose exec app php artisan migrate --seed
-docker-compose exec app npm run dev
-```
+## 🚀 Laravel 環境構築（まず最初に実行）
+# ※ トラブル防止のためビルド付きで起動
+docker-compose up -d --build
+
+# コンテナの状態を確認（php が Up になっていること）
+docker-compose ps
+
+# php コンテナに入る（サービス名は php）
+docker-compose exec php bash
+
+# Laravel の依存関係インストール
+composer install
+
+# アプリキー作成
+php artisan key:generate
+
+# マイグレーション & シーディング
+php artisan migrate --seed
+
+# フロントエンド
+npm install
+npm run dev
 
 ---
 
@@ -46,3 +60,5 @@ DB_PASSWORD=laravel_pass
 
 - phpMyAdmin  
   http://localhost:8080/
+
+---
